@@ -43,6 +43,6 @@ export default function Dashboard() {
       </div>
     </div>
     <div className="card activity-card"><div className="section-title">Recent workspace activity <Link className="text-link" to="/notifications" style={{ float: 'right' }}>View all <span>→</span></Link></div><div className="activity-list">{activities.slice(0, 5).map(item => <div className="activity-row" key={item.id}><span className="activity-icon"><Clock3 size={14} /></span><span>{item.text}</span><time>{item.time}</time></div>)}</div></div>
-    {parcel && <DecisionModal title="Parcel selected" text={`Synthetic parcel ${parcel.id} in ${parcel.village}, ${parcel.district}. ${parcel.area} ha ${parcel.landUse.toLowerCase()} land with ${parcel.ownership.toLowerCase()} tenure.`} onClose={() => setParcel(null)} />}
+    {parcel && <DecisionModal title="Parcel selected" text={`Synthetic parcel ${parcel.id} in ${parcel.village}, ${parcel.district}. ${parcel.area} ha ${parcel.landUse.toLowerCase()} land with ${parcel.ownership.toLowerCase()} tenure.`} close={() => setParcel(null)} />}
   </>;
 }

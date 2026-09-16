@@ -42,10 +42,14 @@ export default function DashboardLayout() {
       }
     };
     window.addEventListener('keydown', handleShortcut);
-    return () => window.removeEventListener('keydown', handleShortcut);
-  }, []);
+    const handleEscape = event => { if (event.key === 'Escape') { setMobile(false); setSearch(false); setMenu(false); } };
+    window.addEventListener('keydown', handleEscape);
+    document.body.style.overflow = mobile || search ? 'hidden' : '';
+    return () => { window.removeEventListener('keydown', handleShortcut); window.removeEventListener('keydown', handleEscape); document.body.style.overflow = ''; };
+  }, [mobile, search]);
 
   return <div className="app-shell">
+    {mobile && <button className="drawer-backdrop" onClick={() => setMobile(false)} aria-label="Close navigation overlay" />}
     <aside className={`sidebar ${collapsed ? 'collapsed ' : ''}${mobile ? 'mobile-open' : ''}`}>
       <div className="sidebar-head">
         <div className="brand-mark"><Globe2 size={21} /></div>
