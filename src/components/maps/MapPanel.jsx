@@ -28,19 +28,20 @@ function MapResizer({ containerRef }) {
   return null;
 }
 
-export default function MapPanel({ onParcel }) {
+export default function MapPanel({ onParcel, markerFilter = 'All' }) {
   const { theme } = useApp();
   const [layers, setLayers] = useState(true);
   const containerRef = useRef(null);
   const mapRef = useRef(null);
   const tileUrl = mapSources[theme === 'light' ? 'light' : 'dark'];
+  const visibleMarkers = markers.filter(marker => markerFilter === 'All' || markerFilter === marker.type || (markerFilter === 'High Risk' && marker.type === 'Dispute') || (markerFilter === 'Verified' && marker.status === 'Verified'));
 
   return <div className="card map-card map-card-real" ref={containerRef}>
     <div className="real-map-shell">
       <MapContainer center={center} zoom={11} scrollWheelZoom doubleClickZoom touchZoom dragging zoomControl={false} whenCreated={map => { mapRef.current = map; }}>
         <TileLayer key={tileUrl} url={tileUrl} attribution="&copy; OpenStreetMap contributors &copy; CARTO" maxZoom={19} />
         <MapResizer containerRef={containerRef} />
-        {layers && markers.map(marker => <CircleMarker key={marker.title} center={marker.position} radius={8} pathOptions={{ color: '#fff', weight: 2, fillColor: marker.color, fillOpacity: .95 }}>
+        {layers && visibleMarkers.map(marker => <CircleMarker key={marker.title} center={marker.position} radius={8} pathOptions={{ color: '#fff', weight: 2, fillColor: marker.color, fillOpacity: .95 }}>
           <Popup><div className="map-popup"><span className="map-popup-kicker">{marker.type}</span><b>{marker.title}</b><span>Status: {marker.status}</span><small>Lucknow, Uttar Pradesh • Demo data</small><Link className="map-popup-link" to={marker.route}>Open record <span>→</span></Link></div></Popup>
         </CircleMarker>)}
         <CircleMarker center={[26.8467, 80.9462]} radius={7} pathOptions={{ color: '#fff', weight: 2, fillColor: '#6f8c82', fillOpacity: .9 }} />
