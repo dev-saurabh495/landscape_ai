@@ -1,0 +1,1 @@
+export const reportService={generateReport:async(title='District Intelligence Report')=>({id:'RPT-'+Date.now(),title,status:'Prepared',createdAt:new Date().toISOString()})};

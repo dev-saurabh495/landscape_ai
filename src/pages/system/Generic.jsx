@@ -1,0 +1,1 @@
+import React from'react';import{Link}from'react-router-dom';export default function Generic({code,title,text}){return <div className="empty-page"><span className="eyebrow">ERROR {code}</span><h1>{title}</h1><p>{text}</p><Link className="btn primary" to="/dashboard">Return to dashboard</Link></div>}

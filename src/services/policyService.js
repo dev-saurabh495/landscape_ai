@@ -1,0 +1,1 @@
+export const policyService={runSimulation:async({threshold=15})=>({affected:(threshold*1.246).toFixed(1),agri:(threshold*-.82).toFixed(1),infra:(threshold*1.42).toFixed(1),risk:(threshold*.57).toFixed(1)})};

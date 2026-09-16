@@ -1,0 +1,1 @@
+export {districts} from './mockData';

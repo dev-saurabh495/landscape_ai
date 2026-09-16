@@ -1,0 +1,1 @@
+import {parcels} from '../data/mockData';export const landService={getParcels:async()=>parcels,getParcel:async(id)=>parcels.find(p=>p.id===id)};

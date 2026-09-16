@@ -1,0 +1,1 @@
+import React from'react';export default function PageHeader({eyebrow='LAND INTELLIGENCE',title,description,actions}){return <div className="page-head"><div><span className="eyebrow">{eyebrow}</span><h1>{title}</h1><p>{description}</p></div>{actions&&<div style={{display:'flex',gap:7,flexWrap:'wrap'}}>{actions}</div>}</div>}

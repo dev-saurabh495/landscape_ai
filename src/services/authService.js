@@ -1,0 +1,1 @@
+export const authService={login:async(email,password)=>{const raw=localStorage.getItem('landEvidenceUsers');const users=raw?JSON.parse(raw):[];return users.find(x=>x.email===email&&x.password===password)||null},logout:()=>localStorage.removeItem('landEvidenceUser')};

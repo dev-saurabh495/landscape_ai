@@ -1,0 +1,1 @@
+import {evidence} from '../data/mockData';export const evidenceService={getEvidence:async()=>evidence,getById:async(id)=>evidence.find(e=>e.id===id)};

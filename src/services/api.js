@@ -1,0 +1,1 @@
+export const api={async get(){return {data:null}},async post(){return {data:null}}};
