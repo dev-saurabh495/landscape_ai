@@ -1,13 +1,13 @@
 import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Activity, AlertTriangle, ArrowDownRight, ArrowRight,
+  AlertTriangle, ArrowDownRight, ArrowRight,
   CalendarDays, CheckCircle2, Clock3, Database, Download, FileCheck2,
   Landmark, MapPinned, RefreshCw, ShieldCheck,
   Sparkles, Target, TrendingUp, Users,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Bar, BarChart, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { Bar, BarChart, Cell, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import PageHeader from '../../components/common/PageHeader';
 import MapPanel from '../../components/maps/MapPanel';
 import DecisionTrace from '../../components/common/DecisionTrace';
